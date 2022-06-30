@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <string.h>
+#include <malloc.h>
+
+// typedef unsigned int LEN = 26; // Length of English Alphabet
+int const LEN = 123; // Length of English Alphabet
+
+// Member of Pair
+typedef struct Pair{
+    char c;
+    int n;
+} Pair;
+
+// Member of Encoded
+typedef struct Encoded{
+    int length;
+    Pair * arr; // We'll use dynamic memory handling
+} Encoded;
+
+/*
+    char str[] = "rizy";
+    char * str = "rizy";
+    last element of an array of char '\0'.
+
+    aaabbaccc -> (a, 4) (b, 2) (c, 3)
+
+    [a: 0] => ++++ = 4
+    [b: 1] => ++ = 2
+    [c: 2] => +++ = 3
+    [d: 3] => = 0
+    [e: 4] => = 0
+     ...
+
+     26 elements
+*/
+
+// Declaration of Encoded function
+Encoded * encode(char * s);
+
+// Encoded function definition
+Encoded * encode(char * s){
+    int counter[LEN];
+    memset(counter, 0, sizeof(counter));
+
+    int i = 0;
+    while(s[i] != '\0'){
+        // 'a' -> 97 and 'z' -> 122 based on ASCII CODE TABLE
+        // 98-97 = 1 => 'b'
+        // 122 - 97 = 25 'z'
+
+        // We have to substract 97 from the ASCII code of the char
+        //char c = s[i] - 'a';
+        counter[s[i]]++;
+        i++;
+    }
+    /*
+        for (int i = 0; s[i] != '\0'; i++){
+
+        }
+    */
+
+    // Dynamic memory allocation
+    // In order to do not acess random memory address
+    Encoded * encode_ptr = NULL;
+    encode_ptr = (Encoded*) malloc(10*sizeof(Encoded)); // Allocate memory for Encoded member
+    encode_ptr->arr = NULL;
+    //(Pair*) malloc(10*sizeof(Pair)); // For array of Pairs
+    encode_ptr->length = 0; // We don't know the exact number of elements
+    int pos = 0;
+    for (int i = 'a'; i<='z'; i++){
+         if(counter[i] > 0){
+             // Create a pair which will be added to our pointer array of Pairs
+             Pair pair;
+             pair.c = (char) i; // Convert integer to char
+             pair.n = counter[i]; // Number of repetitions
+
+             // Insert to pointer array
+             *(encode_ptr->arr + pos) = pair;
+             pos++;
+
+             // 12 + 0 = 12
+             // 12 + 1 = 13
+             // 12 + 2 = 14
+
+             // Topic: Dynamic Pointers
+         }
+    }
+
+    encode_ptr->length = pos;
+    return encode_ptr;
+}
+
+
+int main()
+{
+    char * s = NULL;
+    s = (char*) malloc(sizeof(char*));
+    s = "rizzy";
+
+    Encoded * encode_ptr = NULL;
+    encode_ptr = encode(s);
+
+    for (int i = 0; i<encode_ptr->length; i++){
+        Pair pair = encode_ptr->arr[i];
+        printf("(%c, %d)\n", pair.c, pair.n);
+    }
+
+    free(encode_ptr); // Dealocate the memory
+
+    return 0;
+}

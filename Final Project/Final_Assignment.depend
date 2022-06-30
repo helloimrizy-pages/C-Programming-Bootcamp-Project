@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1655490156 source:/home/codetyper/Desktop/ELTE/Imperative Programming/home_assignment/Rizy_Home_Assignment/main.c
+	<stdio.h>
+	"rle.h"
+
+1655490275 /home/codetyper/Desktop/ELTE/Imperative Programming/home_assignment/Rizy_Home_Assignment/rle.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<malloc.h>
+	<ctype.h>
+	<stdbool.h>
+
+1655489884 source:/home/codetyper/Desktop/ELTE/Imperative Programming/home_assignment/Rizy_Home_Assignment/rle.c
+	"rle.h"
+
+1655490156 source:d:\academic\eötvös loránd university\imperative programming\rizy_home_assignment\rizy_home_assignment\main.c
+	<stdio.h>
+	"rle.h"
+
+1655490275 d:\academic\eötvös loránd university\imperative programming\rizy_home_assignment\rizy_home_assignment\rle.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<malloc.h>
+	<ctype.h>
+	<stdbool.h>
+
+1655490275 source:d:\academic\eötvös loránd university\imperative programming\rizy_home_assignment\rizy_home_assignment\rle.c
+	"rle.h"
+
+1655490156 source:d:\academic\eötvös loránd university\imperative programming\rizy_home_assignment\main.c
+	<stdio.h>
+	"rle.h"
+
+1655490275 d:\academic\eötvös loránd university\imperative programming\rizy_home_assignment\rle.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<malloc.h>
+	<ctype.h>
+	<stdbool.h>
+
+1655490275 source:d:\academic\eötvös loránd university\imperative programming\rizy_home_assignment\rle.c
+	"rle.h"
+
